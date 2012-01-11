@@ -1,0 +1,5 @@
+class AddEntryToContactMethod < ActiveRecord::Migration
+  def change
+    add_column :contact_methods, :entry, :string
+  end
+end

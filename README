@@ -1,0 +1,3 @@
+Address book application for saving multiple contacts.  Basically just an experiment in having multiple types of contacts.  
+
+For example, a Contact can be a PhoneNumber, TextMsg number or Email address.  Each of those types are subclasses of Contact.

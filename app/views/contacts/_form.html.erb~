@@ -1,0 +1,27 @@
+<%= form_for @contact, :url => contacts_path do |f| %>
+  <% if @contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contat from being saved:</h2>
+
+      <ul>
+      <% @contact.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<p>Call this contact something you'll remember (ie., Home Phone, Wife's Cell Phone)</p>
+<%= f.label :name %><br />
+<%= f.text_field :name %><br />
+<p>Pick the method by which you'd like to be contacted</p>
+<ul>
+  <li>PhoneNumber - We'll call your phone.</li>
+  <li>TextMsg - We'll send a text to the number you provide.</li>
+  <li>Email - Duh.. we'll send you an email</p>
+</ul>
+<%= f.select("type", options_for_select(Contact.select_options)) %><br />
+<%= f.text_field :entry %><br />
+<%= f.submit %>
+<% end %>
+

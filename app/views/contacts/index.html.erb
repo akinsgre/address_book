@@ -1,0 +1,4 @@
+<h1>List of Contacts</h1>
+<% @contacts.each do |contact| %>
+<p><%= link_to contact.name, contact_path(contact) %>&nbsp;<%= contact.type %>&nbsp;<%= contact.entry %></p>
+<% end %>

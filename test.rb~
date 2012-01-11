@@ -1,0 +1,5 @@
+class ContactMethod
+end
+
+contactMethod = ContactMethod.new
+puts contactMethod

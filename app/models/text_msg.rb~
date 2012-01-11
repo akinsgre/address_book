@@ -1,0 +1,10 @@
+class TextMsg < Contact
+  def number=(number)
+    write_attribute(:field1,number)
+  end
+
+  def number
+    read_attribute(:field1)
+  end
+
+end
