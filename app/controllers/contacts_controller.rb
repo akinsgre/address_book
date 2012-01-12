@@ -28,7 +28,12 @@ class ContactsController < ApplicationController
       logger.info "redirecting"
       redirect_to @contact, :notice => "Successfully created contact."
     else
-      @contact = @typedContact.becomes(Contact)
+      #Move the errors from typedContact because @contact is going to be
+      # used in the _form after the call to render
+      @typedContact.errors.each do |attr, msg|
+        @contact.errors.add(attr, msg)
+      end
+      logger.info "Typed Errors are " + @typedContact.errors.full_messages.to_s
       logger.info "Errors are " + @typedContact.errors.full_messages.to_s
       render "new"
     end
